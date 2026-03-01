@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Rong! 🥐</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/envelope.css">
+    <link rel="stylesheet" href="styles/orbiting.css">
+    <link rel="stylesheet" href="styles/letter.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Landing Scene with 3D Envelope -->
+    <div id="landing-scene" class="landing-scene">
+        <!-- Animated Dog Character -->
+        <div class="dog-character">🐕</div>
+
+        <!-- Orbiting Elements Container -->
+        <div class="orbiting-container">
+            <div class="orbit orbit-1">
+                <div class="orbit-item croissant">🥐</div>
+            </div>
+            <div class="orbit orbit-2">
+                <div class="orbit-item vinyl">💿</div>
+            </div>
+            <div class="orbit orbit-3">
+                <div class="orbit-item croissant">🥐</div>
+            </div>
+        </div>
+
+        <!-- 3D Envelope -->
+        <div class="envelope-wrapper">
+            <div class="envelope" id="envelope">
+                <div class="envelope-back"></div>
+                <div class="envelope-left"></div>
+                <div class="envelope-right"></div>
+                <div class="envelope-bottom"></div>
+                <div class="envelope-flap"></div>
+
+                <!-- Letter inside envelope -->
+                <div class="letter-preview">
+                    <p>Click to open ✨</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="landing-instructions">
+            <p class="pulse">Click the envelope to open your surprise! 💌</p>
+        </div>
+    </div>
+
+    <!-- Letter Content (Hidden Initially) -->
+    <div id="letter-content" class="letter-content">
+        <!-- Header Section -->
+        <section class="letter-section header-section" data-section="0">
+            <h1 class="birthday-header">
+                Happy 26th Birthday Rong! 🥐
+            </h1>
+            <div class="floating-hearts">
+                <span>💖</span>
+                <span>✨</span>
+                <span>🎂</span>
+                <span>💖</span>
+                <span>✨</span>
+            </div>
+        </section>
+
+        <!-- Message Section -->
+        <section class="letter-section message-section" data-section="1">
+            <div class="message-container">
+                <div class="message-illustration">🐕</div>
+                <div class="message-text">
+                    <p class="message-line">To my dearest Rong,</p>
+                    <p class="message-line">
+                        Happy 26th birthday to the most amazing person in my life!
+                        Today, I want you to know how incredibly special you are to me.
+                    </p>
+                    <p class="message-line">
+                        Every day with you is an adventure filled with laughter, croissants,
+                        and beautiful music. You make the ordinary extraordinary, and I'm
+                        so grateful for every moment we share together.
+                    </p>
+                    <p class="message-line">
+                        Here's to another year of making memories, chasing dreams,
+                        and enjoying all the little things that make life beautiful! 🥐💖
+                    </p>
+                </div>
+                <div class="message-illustration">🥐</div>
+            </div>
+        </section>
+
+        <!-- Vinyl Section -->
+        <section class="letter-section vinyl-section" data-section="2">
+            <h2>A Special Song for You 🎵</h2>
+            <div class="vinyl-player" id="vinyl-player">
+                <div class="vinyl-record" id="vinyl-record">
+                    <div class="vinyl-center"></div>
+                    <div class="vinyl-label">♪</div>
+                </div>
+                <button class="play-button" id="play-button">▶ Click to Play</button>
+            </div>
+            <p class="vinyl-caption">Our favorite tune, just for today 💿</p>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="letter-section gallery-section" data-section="3">
+            <h2>Memories Together 📸</h2>
+            <div class="photo-grid">
+                <div class="photo-frame croissant-border">
+                    <div class="photo-placeholder">
+                        <p>Add your<br>photos here! 📷</p>
+                    </div>
+                </div>
+                <div class="photo-frame dog-border">
+                    <div class="photo-placeholder">
+                        <p>Replace with<br>your photos 🐕</p>
+                    </div>
+                </div>
+                <div class="photo-frame vinyl-border">
+                    <div class="photo-placeholder">
+                        <p>5-10 photos<br>total 💿</p>
+                    </div>
+                </div>
+                <div class="photo-frame croissant-border">
+                    <div class="photo-placeholder">
+                        <p>Beautiful<br>memories 🥐</p>
+                    </div>
+                </div>
+                <div class="photo-frame dog-border">
+                    <div class="photo-placeholder">
+                        <p>Together<br>forever 💖</p>
+                    </div>
+                </div>
+                <div class="photo-frame vinyl-border">
+                    <div class="photo-placeholder">
+                        <p>Special<br>moments ✨</p>
+                    </div>
+                </div>
+            </div>
+            <p class="gallery-note">
+                💡 <em>To add your photos: Replace the placeholder divs with
+                &lt;img src="assets/images/photos/photo1.jpg" alt="Description"&gt;</em>
+            </p>
+        </section>
+
+        <!-- Closing Section -->
+        <section class="letter-section closing-section" data-section="4">
+            <div class="closing-container">
+                <h2>With All My Love 💖</h2>
+                <p class="closing-message">
+                    May this year bring you endless joy, success in everything you do,
+                    and all the croissants your heart desires! 🥐
+                </p>
+                <p class="closing-message">
+                    Thank you for being you, for making me smile every day,
+                    and for filling my life with so much happiness.
+                </p>
+                <p class="signature">
+                    Forever yours,<br>
+                    <span class="signature-name">[Your Name]</span> 💕
+                </p>
+                <div class="floating-elements">
+                    <span class="float-element">💖</span>
+                    <span class="float-element">✨</span>
+                    <span class="float-element">🥐</span>
+                    <span class="float-element">💖</span>
+                    <span class="float-element">✨</span>
+                    <span class="float-element">🐕</span>
+                    <span class="float-element">💖</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/envelope.js"></script>
+    <script src="scripts/vinyl-player.js"></script>
+    <script src="scripts/animations.js"></script>
+</body>
+</html>

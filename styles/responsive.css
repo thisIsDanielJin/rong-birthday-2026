@@ -1,0 +1,239 @@
+/* ========================
+   Responsive Design
+   ======================== */
+
+@media (max-width: 768px) {
+    /* Base Adjustments */
+    :root {
+        --spacing-lg: 2rem;
+        --spacing-xl: 3rem;
+    }
+
+    /* Envelope */
+    .envelope-wrapper {
+        width: 280px;
+        height: 200px;
+    }
+
+    .letter-preview p {
+        font-size: 1.2rem;
+    }
+
+    /* Dog Character */
+    .dog-character {
+        font-size: 4rem;
+        bottom: 30px;
+        left: 5%;
+    }
+
+    /* Orbiting - Reduce complexity */
+    .orbiting-container {
+        width: 400px;
+        height: 400px;
+    }
+
+    .orbit-3 {
+        display: none; /* Hide third orbit on mobile */
+    }
+
+    .orbit-item {
+        font-size: 2rem;
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Landing Instructions */
+    .landing-instructions {
+        bottom: 50px;
+    }
+
+    .landing-instructions p {
+        font-size: 1.2rem;
+        padding: 0 var(--spacing-sm);
+    }
+
+    /* Letter Sections */
+    .letter-section {
+        padding: var(--spacing-md) var(--spacing-sm);
+        min-height: auto;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    /* Header */
+    .birthday-header {
+        font-size: 2.5rem;
+    }
+
+    .floating-hearts {
+        gap: var(--spacing-sm);
+    }
+
+    .floating-hearts span {
+        font-size: 1.8rem;
+    }
+
+    /* Message Section */
+    .message-section {
+        padding: var(--spacing-md);
+    }
+
+    .message-container {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .message-illustration {
+        font-size: 3rem;
+    }
+
+    .message-line {
+        font-size: 1rem;
+    }
+
+    /* Vinyl Section */
+    .vinyl-record {
+        width: 220px;
+        height: 220px;
+    }
+
+    .vinyl-center {
+        width: 60px;
+        height: 60px;
+    }
+
+    .vinyl-label {
+        font-size: 1.5rem;
+    }
+
+    .play-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+
+    /* Gallery */
+    .photo-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .photo-frame {
+        border-width: 5px;
+    }
+
+    /* Closing Section */
+    .closing-container {
+        padding: var(--spacing-md);
+    }
+
+    .closing-message {
+        font-size: 1rem;
+    }
+
+    .signature {
+        font-size: 1.1rem;
+    }
+
+    .signature-name {
+        font-size: 1.5rem;
+    }
+
+    .float-element {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extra small devices */
+    .envelope-wrapper {
+        width: 240px;
+        height: 170px;
+    }
+
+    .dog-character {
+        font-size: 3rem;
+    }
+
+    .orbiting-container {
+        width: 300px;
+        height: 300px;
+    }
+
+    .birthday-header {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .vinyl-record {
+        width: 180px;
+        height: 180px;
+    }
+
+    .vinyl-center {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Touch device specific */
+@media (hover: none) and (pointer: coarse) {
+    .envelope-wrapper:hover {
+        transform: none;
+    }
+
+    .envelope-wrapper:active {
+        transform: translateY(-5px) scale(0.98);
+    }
+
+    .photo-frame:hover {
+        transform: none;
+    }
+
+    .photo-frame:active {
+        transform: scale(0.95);
+    }
+
+    .play-button:hover {
+        transform: none;
+    }
+
+    .play-button:active {
+        transform: scale(0.95);
+    }
+}
+
+/* Landscape mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+    .letter-section {
+        min-height: auto;
+        padding: var(--spacing-md);
+    }
+
+    .envelope-wrapper {
+        width: 200px;
+        height: 140px;
+    }
+
+    .landing-instructions {
+        bottom: 20px;
+    }
+
+    .dog-character {
+        font-size: 2.5rem;
+        bottom: 10px;
+    }
+}
+
+/* High resolution displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .envelope-back,
+    .envelope-left,
+    .envelope-right,
+    .envelope-bottom,
+    .envelope-flap {
+        border-width: 1.5px;
+    }
+}
