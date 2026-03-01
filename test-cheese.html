@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Test Cheese Fart</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #FFE5E5;
+            flex-direction: column;
+            gap: 50px;
+        }
+        .cheese {
+            font-size: 10rem;
+            cursor: pointer;
+            animation: spin 3s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .cheese:hover {
+            transform: scale(1.2);
+        }
+        button {
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Cheese Fart Sound 🧀💨</h1>
+    <div class="cheese" id="cheese">🧀</div>
+    <button id="testBtn">Click to Test Fart Sound</button>
+    <p id="status"></p>
+
+    <audio id="fart-sound" preload="auto">
+        <source src="audio/fart.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const cheese = document.getElementById('cheese');
+        const testBtn = document.getElementById('testBtn');
+        const fartSound = document.getElementById('fart-sound');
+        const status = document.getElementById('status');
+
+        const playFart = () => {
+            console.log('🧀 Cheese clicked!');
+            fartSound.currentTime = 0;
+            fartSound.play()
+                .then(() => {
+                    status.textContent = '✅ Fart sound playing!';
+                    console.log('✅ Audio playing');
+                })
+                .catch(err => {
+                    status.textContent = '❌ Error: ' + err.message;
+                    console.error('❌ Audio error:', err);
+                });
+        };
+
+        cheese.addEventListener('click', playFart);
+        testBtn.addEventListener('click', playFart);
+
+        console.log('🧀 Test page loaded');
+        console.log('Audio element:', fartSound);
+        console.log('Audio src:', fartSound.src);
+    </script>
+</body>
+</html>

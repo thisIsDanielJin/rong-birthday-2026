@@ -1,103 +1,62 @@
 /* ========================
-   Orbiting Elements
+   Floating Sparkles Effect
+   (Replaces Orbiting Elements)
    ======================== */
 
-.orbiting-container {
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transform-style: preserve-3d;
-    pointer-events: none;
-}
-
-/* Orbit Paths */
-.orbit {
+.floating-sparkles {
     position: absolute;
     width: 100%;
     height: 100%;
-    border: 2px dashed rgba(255, 180, 140, 0.2);
-    border-radius: 50%;
-    transform-style: preserve-3d;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-
-.orbit-1 {
-    transform: rotateX(60deg) rotateY(0deg);
-    animation: rotate 20s linear infinite;
-}
-
-.orbit-2 {
-    transform: rotateX(40deg) rotateY(120deg);
-    animation: rotate 25s linear infinite;
-}
-
-.orbit-3 {
-    transform: rotateX(70deg) rotateY(240deg);
-    animation: rotate 18s linear infinite;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotateX(60deg) rotateY(0deg) rotateZ(0deg);
-    }
-    to {
-        transform: rotateX(60deg) rotateY(0deg) rotateZ(360deg);
-    }
-}
-
-/* Orbit Items */
-.orbit-item {
-    position: absolute;
-    width: 60px;
-    height: 60px;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    animation: itemFloat 3s ease-in-out infinite;
-    filter: drop-shadow(0 4px 8px rgba(255, 180, 140, 0.4));
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
 }
 
-@keyframes itemFloat {
-    0%, 100% {
-        transform: translateX(-50%) translateY(0);
+/* Individual Sparkle */
+.sparkle {
+    position: absolute;
+    font-size: 2.5rem;
+    opacity: 0;
+    animation: floatSparkle var(--duration, 4s) ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+    left: var(--x, 50%);
+    top: var(--y, 50%);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+}
+
+@keyframes floatSparkle {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+    }
+    20% {
+        opacity: 1;
     }
     50% {
-        transform: translateX(-50%) translateY(-15px);
+        transform: translate(-50%, calc(-50% - 30px)) scale(1.2) rotate(180deg);
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, calc(-50% - 60px)) scale(0.5) rotate(360deg);
     }
 }
 
-/* Vinyl-specific spin */
-.orbit-item.vinyl {
-    animation: itemFloat 3s ease-in-out infinite, vinylSpin 4s linear infinite;
+/* Add gentle pulsing glow */
+.sparkle:nth-child(odd) {
+    animation: floatSparkle var(--duration, 4s) ease-in-out infinite,
+               pulseGlow 2s ease-in-out infinite;
 }
 
-@keyframes vinylSpin {
-    from {
-        transform: translateX(-50%) rotate(0deg);
-    }
-    to {
-        transform: translateX(-50%) rotate(360deg);
-    }
-}
-
-/* Croissant styling */
-.orbit-item.croissant {
-    animation: itemFloat 3s ease-in-out infinite, croissantWobble 2s ease-in-out infinite;
-}
-
-@keyframes croissantWobble {
+@keyframes pulseGlow {
     0%, 100% {
-        transform: translateX(-50%) rotate(-5deg);
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
     }
     50% {
-        transform: translateX(-50%) rotate(5deg);
+        filter: drop-shadow(0 0 20px rgba(255, 180, 140, 1));
     }
 }
+

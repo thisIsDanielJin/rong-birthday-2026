@@ -6,6 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const vinylRecord = document.getElementById('vinyl-record');
     const playButton = document.getElementById('play-button');
+    const audioElement = document.getElementById('birthday-audio');
 
     if (!vinylRecord || !playButton) {
         console.error('Vinyl player elements not found');
@@ -13,17 +14,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let isPlaying = false;
-    let audio = null;
+    let audio = audioElement; // Use HTML5 audio element
 
-    // Optional: Initialize audio if file exists
-    // Uncomment and add your audio file path
-    /*
-    audio = new Audio('assets/audio/vinyl-song.mp3');
-    audio.loop = true;
-    audio.addEventListener('ended', () => {
-        stopVinyl();
-    });
-    */
+    // Fallback to JavaScript Audio if HTML element not found
+    if (!audio) {
+        console.log('Using JavaScript Audio object as fallback');
+        audio = new Audio('audio/song.mp3');
+        audio.loop = true;
+    }
+
+    audio.volume = 0.7; // Set to 70% volume
+
+    console.log('🎵 Audio ready:', audio.src || 'audio/song.mp3');
 
     // Toggle vinyl spinning
     const toggleVinyl = () => {
@@ -47,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        console.log('🎵 Vinyl started spinning');
+        console.log('🎵 Vinyl started spinning - Mogwaa - From Above');
     };
 
     const stopVinyl = () => {
@@ -74,14 +76,15 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleVinyl();
     });
 
-    // Auto-play when section comes into view (optional)
+    // Auto-play removed - browser security often blocks it
+    // User must click to start audio
+    /*
+    // Auto-play when section comes into view (disabled)
     const vinylSection = document.querySelector('.vinyl-section');
     if (vinylSection) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !isPlaying) {
-                    // Auto-start vinyl when scrolled into view
-                    // Comment out if you don't want auto-play
                     setTimeout(() => {
                         startVinyl();
                     }, 500);
@@ -91,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         observer.observe(vinylSection);
     }
+    */
 
     // Keyboard controls (spacebar to toggle)
     document.addEventListener('keydown', (e) => {

@@ -31,6 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
             landingScene.classList.add('hidden');
             // Re-enable scrolling
             document.body.style.overflow = 'auto';
+
+            // Completely remove the landing scene after transition completes
+            setTimeout(() => {
+                landingScene.style.display = 'none';
+            }, 800); // Match the CSS transition duration
         }, 1500);
 
         // Show letter content after scene transition

@@ -62,152 +62,246 @@ function init3DDog() {
 function createSimpleDog() {
     dog3D = new THREE.Group();
 
-    // Materials
-    const brownMaterial = new THREE.MeshPhongMaterial({
-        color: 0x8B4513,
-        shininess: 30
+    // Materials with improved colors and textures
+    const furMaterial = new THREE.MeshPhongMaterial({
+        color: 0xD2691E, // More realistic brown
+        shininess: 20,
+        specular: 0x333333
     });
-    const darkBrownMaterial = new THREE.MeshPhongMaterial({
-        color: 0x654321,
-        shininess: 30
+    const darkFurMaterial = new THREE.MeshPhongMaterial({
+        color: 0x8B4513,
+        shininess: 20,
+        specular: 0x222222
     });
     const blackMaterial = new THREE.MeshPhongMaterial({
-        color: 0x000000,
-        shininess: 50
+        color: 0x1a1a1a,
+        shininess: 80
+    });
+    const noseMaterial = new THREE.MeshPhongMaterial({
+        color: 0x2d2d2d,
+        shininess: 100
     });
     const pinkMaterial = new THREE.MeshPhongMaterial({
-        color: 0xffb6c1,
-        shininess: 20
+        color: 0xff9cb4,
+        shininess: 30
     });
 
-    // Body (rounded)
+    // Body (more elongated like a real dog)
     const bodyGeometry = new THREE.SphereGeometry(1, 32, 32);
-    bodyGeometry.scale(1.2, 1, 0.8);
-    const body = new THREE.Mesh(bodyGeometry, brownMaterial);
-    body.position.set(0, 0, 0);
+    bodyGeometry.scale(1.5, 1.1, 0.9);
+    const body = new THREE.Mesh(bodyGeometry, furMaterial);
+    body.position.set(0, 0.3, 0);
+    body.castShadow = true;
     dog3D.add(body);
 
-    // Head
-    const headGeometry = new THREE.SphereGeometry(0.8, 32, 32);
-    const head = new THREE.Mesh(headGeometry, brownMaterial);
-    head.position.set(0, 0.5, 1.2);
+    // Chest (makes it more dog-like)
+    const chestGeometry = new THREE.SphereGeometry(0.7, 32, 32);
+    chestGeometry.scale(1, 1.2, 1);
+    const chest = new THREE.Mesh(chestGeometry, furMaterial);
+    chest.position.set(0, 0, 0.9);
+    dog3D.add(chest);
+
+    // Head (more proportional)
+    const headGeometry = new THREE.SphereGeometry(0.9, 32, 32);
+    headGeometry.scale(1, 1.1, 1.1);
+    const head = new THREE.Mesh(headGeometry, furMaterial);
+    head.position.set(0, 0.8, 1.4);
+    head.castShadow = true;
     dog3D.add(head);
 
-    // Snout
-    const snoutGeometry = new THREE.SphereGeometry(0.4, 16, 16);
-    snoutGeometry.scale(0.8, 0.6, 1.2);
-    const snout = new THREE.Mesh(snoutGeometry, darkBrownMaterial);
-    snout.position.set(0, 0.2, 1.9);
+    // Snout (more prominent)
+    const snoutGeometry = new THREE.SphereGeometry(0.45, 16, 16);
+    snoutGeometry.scale(0.9, 0.7, 1.4);
+    const snout = new THREE.Mesh(snoutGeometry, darkFurMaterial);
+    snout.position.set(0, 0.5, 2.1);
     dog3D.add(snout);
 
-    // Nose
-    const noseGeometry = new THREE.SphereGeometry(0.15, 16, 16);
-    const nose = new THREE.Mesh(noseGeometry, blackMaterial);
-    nose.position.set(0, 0.25, 2.3);
+    // Nose (wet dog nose!)
+    const noseGeometry = new THREE.SphereGeometry(0.2, 16, 16);
+    noseGeometry.scale(1.2, 0.8, 1);
+    const nose = new THREE.Mesh(noseGeometry, noseMaterial);
+    nose.position.set(0, 0.5, 2.6);
     dog3D.add(nose);
 
-    // Eyes
-    const eyeGeometry = new THREE.SphereGeometry(0.15, 16, 16);
+    // Nostrils
+    const nostrilGeometry = new THREE.SphereGeometry(0.05, 8, 8);
+    const leftNostril = new THREE.Mesh(nostrilGeometry, blackMaterial);
+    leftNostril.position.set(-0.08, 0.48, 2.68);
+    dog3D.add(leftNostril);
+    const rightNostril = new THREE.Mesh(nostrilGeometry, blackMaterial);
+    rightNostril.position.set(0.08, 0.48, 2.68);
+    dog3D.add(rightNostril);
+
+    // Eyes (more expressive)
+    const eyeGeometry = new THREE.SphereGeometry(0.18, 16, 16);
     const leftEye = new THREE.Mesh(eyeGeometry, blackMaterial);
-    leftEye.position.set(-0.3, 0.6, 1.7);
+    leftEye.position.set(-0.35, 0.95, 2);
     dog3D.add(leftEye);
 
     const rightEye = new THREE.Mesh(eyeGeometry, blackMaterial);
-    rightEye.position.set(0.3, 0.6, 1.7);
+    rightEye.position.set(0.35, 0.95, 2);
     dog3D.add(rightEye);
 
-    // Eye shine (white dots)
-    const shineGeometry = new THREE.SphereGeometry(0.05, 8, 8);
+    // Eye shine (makes eyes look alive)
+    const shineGeometry = new THREE.SphereGeometry(0.06, 8, 8);
     const shineMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
 
     const leftShine = new THREE.Mesh(shineGeometry, shineMaterial);
-    leftShine.position.set(-0.25, 0.65, 1.8);
+    leftShine.position.set(-0.3, 1, 2.1);
     dog3D.add(leftShine);
 
     const rightShine = new THREE.Mesh(shineGeometry, shineMaterial);
-    rightShine.position.set(0.35, 0.65, 1.8);
+    rightShine.position.set(0.4, 1, 2.1);
     dog3D.add(rightShine);
 
-    // Ears (floppy)
-    const earGeometry = new THREE.SphereGeometry(0.4, 16, 16);
-    earGeometry.scale(0.6, 1.2, 0.3);
+    // Eyebrows (adds expression)
+    const browGeometry = new THREE.SphereGeometry(0.15, 8, 8);
+    browGeometry.scale(1.5, 0.3, 0.3);
+    const leftBrow = new THREE.Mesh(browGeometry, darkFurMaterial);
+    leftBrow.position.set(-0.35, 1.15, 1.95);
+    leftBrow.rotation.z = -0.2;
+    dog3D.add(leftBrow);
+    const rightBrow = new THREE.Mesh(browGeometry, darkFurMaterial);
+    rightBrow.position.set(0.35, 1.15, 1.95);
+    rightBrow.rotation.z = 0.2;
+    dog3D.add(rightBrow);
 
-    const leftEar = new THREE.Mesh(earGeometry, darkBrownMaterial);
-    leftEar.position.set(-0.6, 0.7, 1.1);
-    leftEar.rotation.z = -0.3;
+    // Ears (long floppy ears)
+    const earGeometry = new THREE.SphereGeometry(0.45, 16, 16);
+    earGeometry.scale(0.5, 1.5, 0.25);
+
+    const leftEar = new THREE.Mesh(earGeometry, darkFurMaterial);
+    leftEar.position.set(-0.65, 1.1, 1.3);
+    leftEar.rotation.z = -0.5;
+    leftEar.rotation.x = 0.3;
     dog3D.add(leftEar);
 
-    const rightEar = new THREE.Mesh(earGeometry, darkBrownMaterial);
-    rightEar.position.set(0.6, 0.7, 1.1);
-    rightEar.rotation.z = 0.3;
+    const rightEar = new THREE.Mesh(earGeometry, darkFurMaterial);
+    rightEar.position.set(0.65, 1.1, 1.3);
+    rightEar.rotation.z = 0.5;
+    rightEar.rotation.x = 0.3;
     dog3D.add(rightEar);
 
-    // Legs
-    const legGeometry = new THREE.CylinderGeometry(0.2, 0.18, 1, 16);
+    // Legs (more proportional)
+    const legGeometry = new THREE.CylinderGeometry(0.22, 0.2, 1.2, 16);
 
-    const frontLeftLeg = new THREE.Mesh(legGeometry, brownMaterial);
-    frontLeftLeg.position.set(-0.5, -0.9, 0.6);
+    const frontLeftLeg = new THREE.Mesh(legGeometry, furMaterial);
+    frontLeftLeg.position.set(-0.45, -0.6, 0.8);
+    frontLeftLeg.castShadow = true;
     dog3D.add(frontLeftLeg);
 
-    const frontRightLeg = new THREE.Mesh(legGeometry, brownMaterial);
-    frontRightLeg.position.set(0.5, -0.9, 0.6);
+    const frontRightLeg = new THREE.Mesh(legGeometry, furMaterial);
+    frontRightLeg.position.set(0.45, -0.6, 0.8);
+    frontRightLeg.castShadow = true;
     dog3D.add(frontRightLeg);
 
-    const backLeftLeg = new THREE.Mesh(legGeometry, brownMaterial);
-    backLeftLeg.position.set(-0.5, -0.9, -0.4);
+    const backLeftLeg = new THREE.Mesh(legGeometry, furMaterial);
+    backLeftLeg.position.set(-0.45, -0.6, -0.6);
+    backLeftLeg.castShadow = true;
     dog3D.add(backLeftLeg);
 
-    const backRightLeg = new THREE.Mesh(legGeometry, brownMaterial);
-    backRightLeg.position.set(0.5, -0.9, -0.4);
+    const backRightLeg = new THREE.Mesh(legGeometry, furMaterial);
+    backRightLeg.position.set(0.45, -0.6, -0.6);
+    backRightLeg.castShadow = true;
     dog3D.add(backRightLeg);
 
-    // Paws
-    const pawGeometry = new THREE.SphereGeometry(0.22, 16, 16);
-    pawGeometry.scale(1, 0.5, 1);
+    // Paws (more detailed)
+    const pawGeometry = new THREE.SphereGeometry(0.25, 16, 16);
+    pawGeometry.scale(1, 0.6, 1.1);
 
     const paws = [
-        [-0.5, -1.4, 0.6],
-        [0.5, -1.4, 0.6],
-        [-0.5, -1.4, -0.4],
-        [0.5, -1.4, -0.4]
+        [-0.45, -1.15, 0.8],
+        [0.45, -1.15, 0.8],
+        [-0.45, -1.15, -0.6],
+        [0.45, -1.15, -0.6]
     ];
 
     paws.forEach(pos => {
-        const paw = new THREE.Mesh(pawGeometry, darkBrownMaterial);
+        const paw = new THREE.Mesh(pawGeometry, darkFurMaterial);
         paw.position.set(...pos);
+        paw.castShadow = true;
         dog3D.add(paw);
     });
 
-    // Tail (curved)
+    // Paw pads
+    const padGeometry = new THREE.SphereGeometry(0.08, 8, 8);
+    padGeometry.scale(1, 0.3, 1);
+    paws.forEach(pos => {
+        for (let i = 0; i < 3; i++) {
+            const pad = new THREE.Mesh(padGeometry, pinkMaterial);
+            pad.position.set(
+                pos[0] + (i - 1) * 0.12,
+                pos[1] - 0.08,
+                pos[2] + 0.15
+            );
+            dog3D.add(pad);
+        }
+    });
+
+    // Tail (more curved and fluffy)
     const tailCurve = new THREE.QuadraticBezierCurve3(
-        new THREE.Vector3(0, 0.2, -1),
-        new THREE.Vector3(0, 1.5, -1.5),
-        new THREE.Vector3(0, 1, -0.5)
+        new THREE.Vector3(0, 0.4, -1.2),
+        new THREE.Vector3(0, 1.8, -1.8),
+        new THREE.Vector3(0, 1.4, -0.8)
     );
-    const tailGeometry = new THREE.TubeGeometry(tailCurve, 20, 0.15, 8, false);
-    const tail = new THREE.Mesh(tailGeometry, brownMaterial);
+    const tailGeometry = new THREE.TubeGeometry(tailCurve, 20, 0.18, 12, false);
+    const tail = new THREE.Mesh(tailGeometry, furMaterial);
+    tail.castShadow = true;
     dog3D.add(tail);
 
-    // Tongue (optional cute detail)
-    const tongueGeometry = new THREE.BoxGeometry(0.2, 0.3, 0.05);
+    // Tail tip (fluffy end)
+    const tailTipGeometry = new THREE.SphereGeometry(0.25, 16, 16);
+    const tailTip = new THREE.Mesh(tailTipGeometry, darkFurMaterial);
+    tailTip.position.set(0, 1.4, -0.8);
+    dog3D.add(tailTip);
+
+    // Tongue (hanging out)
+    const tongueGeometry = new THREE.BoxGeometry(0.25, 0.4, 0.08);
+    tongueGeometry.translate(0, -0.2, 0);
     const tongue = new THREE.Mesh(tongueGeometry, pinkMaterial);
-    tongue.position.set(0, 0, 2.2);
+    tongue.position.set(0, 0.35, 2.5);
+    tongue.rotation.x = 0.3;
     dog3D.add(tongue);
 
+    // Collar (adds character)
+    const collarGeometry = new THREE.TorusGeometry(0.6, 0.08, 8, 24);
+    const collarMaterial = new THREE.MeshPhongMaterial({
+        color: 0xff4444,
+        shininess: 50
+    });
+    const collar = new THREE.Mesh(collarGeometry, collarMaterial);
+    collar.position.set(0, 0.3, 1.2);
+    collar.rotation.x = Math.PI / 2;
+    dog3D.add(collar);
+
+    // Collar tag
+    const tagGeometry = new THREE.CircleGeometry(0.12, 16);
+    const tagMaterial = new THREE.MeshPhongMaterial({
+        color: 0xffd700,
+        shininess: 80
+    });
+    const tag = new THREE.Mesh(tagGeometry, tagMaterial);
+    tag.position.set(0, 0.1, 1.65);
+    dog3D.add(tag);
+
     // Position the entire dog
-    dog3D.position.set(0, 0, 0);
-    dog3D.rotation.y = Math.PI / 6; // Slight angle
+    dog3D.position.set(0, 1, 0);
+    dog3D.rotation.y = Math.PI / 8; // Slight angle
+    dog3D.scale.set(0.9, 0.9, 0.9); // Slightly smaller to fit better
 
     dogScene.add(dog3D);
 
     // Store references for animation
     dog3D.userData = {
         tail: tail,
+        tailTip: tailTip,
         tongue: tongue,
         leftEar: leftEar,
         rightEar: rightEar,
         body: body,
-        head: head
+        head: head,
+        leftEye: leftEye,
+        rightEye: rightEye
     };
 }
 
@@ -219,28 +313,43 @@ function animate3DDog() {
     const time = Date.now() * 0.001;
 
     // Gentle breathing
-    const breathScale = 1 + Math.sin(time * 1.5) * 0.05;
-    dog3D.userData.body.scale.set(1.2, breathScale, 0.8);
+    const breathScale = 1 + Math.sin(time * 1.5) * 0.04;
+    dog3D.userData.body.scale.set(1.5, breathScale * 1.1, 0.9);
 
-    // Head slight movement
-    dog3D.userData.head.rotation.x = Math.sin(time * 0.8) * 0.1;
-    dog3D.userData.head.rotation.y = Math.sin(time * 0.5) * 0.15;
+    // Head slight movement (looking around)
+    dog3D.userData.head.rotation.x = Math.sin(time * 0.7) * 0.08;
+    dog3D.userData.head.rotation.y = Math.sin(time * 0.5) * 0.12;
 
-    // Tail wagging
-    dog3D.userData.tail.rotation.z = Math.sin(time * 3) * 0.5;
+    // Tail wagging (happy dog!)
+    const tailWag = Math.sin(time * 4) * 0.6;
+    dog3D.userData.tail.rotation.z = tailWag;
+    if (dog3D.userData.tailTip) {
+        dog3D.userData.tailTip.rotation.z = tailWag * 0.8;
+    }
 
     // Ears slight flutter
-    dog3D.userData.leftEar.rotation.x = Math.sin(time * 2) * 0.1;
-    dog3D.userData.rightEar.rotation.x = Math.sin(time * 2.2) * 0.1;
+    dog3D.userData.leftEar.rotation.x = 0.3 + Math.sin(time * 2.2) * 0.1;
+    dog3D.userData.rightEar.rotation.x = 0.3 + Math.sin(time * 2.5) * 0.1;
 
     // Tongue wiggle
-    dog3D.userData.tongue.scale.y = 1 + Math.sin(time * 4) * 0.1;
+    dog3D.userData.tongue.scale.y = 1 + Math.sin(time * 3) * 0.08;
 
     // Whole dog gentle rotation
-    dog3D.rotation.y = Math.PI / 6 + Math.sin(time * 0.3) * 0.2;
+    dog3D.rotation.y = Math.PI / 8 + Math.sin(time * 0.4) * 0.15;
 
     // Slight bounce
-    dog3D.position.y = Math.sin(time * 1.2) * 0.3;
+    dog3D.position.y = 1 + Math.sin(time * 1.2) * 0.2;
+
+    // Occasional blink
+    const blinkTime = (time * 1.5) % 4;
+    if (blinkTime > 3.8) {
+        const blinkScale = Math.max(0.1, 1 - (blinkTime - 3.8) * 5);
+        dog3D.userData.leftEye.scale.y = blinkScale;
+        dog3D.userData.rightEye.scale.y = blinkScale;
+    } else {
+        dog3D.userData.leftEye.scale.y = 1;
+        dog3D.userData.rightEye.scale.y = 1;
+    }
 
     dogRenderer.render(dogScene, dogCamera);
 }

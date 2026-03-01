@@ -1,0 +1,21 @@
+{
+  "name": "rong-birthday-2026",
+  "version": "1.0.0",
+  "description": "A beautiful, interactive birthday website featuring a 3D envelope animation, orbiting elements, vinyl player, and photo gallery.",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report test-results/html-report",
+    "serve": "node server.js 8080",
+    "dev": "node server.js 8080"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "playwright": "^1.58.2"
+  }
+}

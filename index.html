@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Rong! 🥐</title>
+    <title>Alles Gute zum Geburtstag Rong! 🥐🐭🐟</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
@@ -30,6 +30,8 @@
                 <span class="loading-icon">🥐</span>
                 <span class="loading-icon">💿</span>
                 <span class="loading-icon">🐕</span>
+                <span class="loading-icon">🐭</span>
+                <span class="loading-icon">🐟</span>
             </div>
         </div>
         <div class="loading-sparkle"></div>
@@ -37,7 +39,7 @@
         <div class="loading-sparkle"></div>
         <div class="loading-sparkle"></div>
         <p class="loading-text">
-            Preparing something special<span class="loading-dots"></span>
+            Etwas Besonderes wird vorbereitet<span class="loading-dots"></span>
         </p>
         <div class="loading-progress">
             <div id="loading-progress-bar" class="loading-progress-bar"></div>
@@ -46,23 +48,24 @@
 
     <!-- Landing Scene with 3D Envelope -->
     <div id="landing-scene" class="landing-scene" style="display: none;">
-        <!-- Animated Dog Character -->
-        <div class="dog-character">🐕</div>
 
-        <!-- Orbiting Elements Container -->
-        <div class="orbiting-container">
-            <div class="orbit orbit-1">
-                <div class="orbit-item croissant">🥐</div>
-            </div>
-            <div class="orbit orbit-2">
-                <div class="orbit-item vinyl">💿</div>
-            </div>
-            <div class="orbit orbit-3">
-                <div class="orbit-item croissant">🥐</div>
-            </div>
+        <!-- Floating Sparkles Effect (replaces orbit) -->
+        <div class="floating-sparkles">
+            <div class="sparkle" style="--delay: 0s; --duration: 3s; --x: 10%; --y: 20%;">✨</div>
+            <div class="sparkle" style="--delay: 0.5s; --duration: 4s; --x: 85%; --y: 30%;">💖</div>
+            <div class="sparkle" style="--delay: 1s; --duration: 3.5s; --x: 15%; --y: 70%;">🥐</div>
+            <div class="sparkle" style="--delay: 1.5s; --duration: 4.5s; --x: 80%; --y: 65%;">💿</div>
+            <div class="sparkle" style="--delay: 2s; --duration: 3.8s; --x: 50%; --y: 15%;">✨</div>
+            <div class="sparkle" style="--delay: 2.5s; --duration: 4.2s; --x: 20%; --y: 50%;">🥐</div>
+            <div class="sparkle" style="--delay: 3s; --duration: 3.3s; --x: 75%; --y: 85%;">💖</div>
+            <div class="sparkle" style="--delay: 3.5s; --duration: 4.8s; --x: 40%; --y: 80%;">✨</div>
+            <div class="sparkle" style="--delay: 1.2s; --duration: 3.6s; --x: 60%; --y: 40%;">🐭</div>
+            <div class="sparkle" style="--delay: 2.8s; --duration: 4.1s; --x: 30%; --y: 25%;">🐟</div>
+            <div class="sparkle" style="--delay: 0.8s; --duration: 3.9s; --x: 70%; --y: 55%;">🐭</div>
+            <div class="sparkle" style="--delay: 3.2s; --duration: 4.3s; --x: 45%; --y: 90%;">🐟</div>
         </div>
 
-        <!-- 3D Envelope -->
+        <!-- 3D Envelope (now bigger) -->
         <div class="envelope-wrapper">
             <div class="envelope" id="envelope">
                 <div class="envelope-back"></div>
@@ -73,13 +76,13 @@
 
                 <!-- Letter inside envelope -->
                 <div class="letter-preview">
-                    <p>Click to open ✨</p>
+                    <p> Öffnen ✨</p>
                 </div>
             </div>
         </div>
 
         <div class="landing-instructions">
-            <p class="pulse">Click the envelope to open your surprise! 💌</p>
+            <p class="pulse">Klicke auf den Umschlag, für eine Überraschung! 💌</p>
         </div>
     </div>
 
@@ -88,119 +91,197 @@
         <!-- Header Section -->
         <section class="letter-section header-section" data-section="0">
             <h1 class="birthday-header">
-                Happy 26th Birthday Rong! 🥐
+                Alles Gute zum 26. Geburtstag Rong! 🥐
             </h1>
+           
             <div class="floating-hearts">
                 <span>💖</span>
                 <span>✨</span>
                 <span>🎂</span>
+                <span>🐭</span>
+                <span>🐟</span>
                 <span>💖</span>
                 <span>✨</span>
+            </div>
+            <!-- Scroll Down Arrow -->
+            <div class="scroll-arrow">
+                <span>↓</span>
             </div>
         </section>
 
         <!-- Message Section -->
         <section class="letter-section message-section" data-section="1">
             <div class="message-container">
-                <div class="message-illustration">🐕</div>
+                <div class="message-illustration">🐭</div>
                 <div class="message-text">
-                    <p class="message-line">To my dearest Rong,</p>
+                    <p class="message-line">An meine liebste Maus,</p>
                     <p class="message-line">
-                        Happy 26th birthday to the most amazing person in my life!
-                        Today, I want you to know how incredibly special you are to me.
+                        Alles Gute zum 26. Geburtstag für den wunderbarsten Menschen in meinem Leben!
+                        Heute möchte ich dir sagen, wie toll du bist.
                     </p>
                     <p class="message-line">
-                        Every day with you is an adventure filled with laughter, croissants,
-                        and beautiful music. You make the ordinary extraordinary, and I'm
-                        so grateful for every moment we share together.
+                        Ich bin so dankbar für die Zeit mit Dir, die Momente die wir teilen, gemeinsam neue Gerichte erkunden
+                        und wunderschöner Musik zusammen genießen. Es ist so schön gemeinsam Spaß zu haben und neue Dinge zusammen zu entdecken! 
+                        Manchmal ist es nicht leicht mit mir und ich dafür danke ich dir umso mehr das du in solchen Momenten immer so geduldig und verständnisvoll bist. 
+                        Dadurch lerne ich eine ganze Menge und kann mich weiter verbessern :) 
                     </p>
                     <p class="message-line">
-                        Here's to another year of making memories, chasing dreams,
-                        and enjoying all the little things that make life beautiful! 🥐💖
+                        Auf ein weiteres Jahr voller Erinnerungen, dem Verfolgen von Träumen
+                        und dem Genießen all der kleinen Dinge, die das Leben schön machen! 🥐🐭💖
                     </p>
                 </div>
-                <div class="message-illustration">🥐</div>
+                <div class="message-illustration">🐟</div>
             </div>
         </section>
 
         <!-- Vinyl Section -->
         <section class="letter-section vinyl-section" data-section="2">
-            <h2>A Special Song for You 🎵</h2>
+            <h2>Ein Track um den Tag zu starten 🎵</h2>
             <div class="vinyl-player" id="vinyl-player">
                 <div class="vinyl-record" id="vinyl-record">
                     <div class="vinyl-center"></div>
                     <div class="vinyl-label">♪</div>
                 </div>
-                <button class="play-button" id="play-button">▶ Click to Play</button>
+                <button class="play-button" id="play-button">▶ Klicke zum Abspielen</button>
             </div>
-            <p class="vinyl-caption">Our favorite tune, just for today 💿</p>
+            <p class="vinyl-caption">Memorieeeees 💿</p>
+            <!-- Hidden audio element -->
+            <audio id="birthday-audio" preload="auto" loop>
+                <source src="audio/song.mp3" type="audio/mpeg">
+                Dein Browser unterstützt kein Audio.
+            </audio>
+            <!-- Hidden fart sound effect -->
+            <audio id="fart-sound" preload="auto">
+                <source src="audio/fart.mp3" type="audio/mpeg">
+            </audio>
         </section>
 
         <!-- Gallery Section -->
         <section class="letter-section gallery-section" data-section="3">
-            <h2>Memories Together 📸</h2>
+            <h2>Mehr Memorieeeees 📸</h2>
             <div class="photo-grid">
-                <div class="photo-frame croissant-border">
-                    <div class="photo-placeholder">
-                        <p>Add your<br>photos here! 📷</p>
+                <!-- Photo 1 - Polaroid Style -->
+                <div class="polaroid-frame">
+                    <div class="polaroid-photo">
+                        <img src="images/IMG_7664.JPG" alt="Erinnerung 1">
+                    </div>
+                    <div class="polaroid-caption">
+                        <p class="caption-text">Du siehst hier so süß aus!</p>
                     </div>
                 </div>
-                <div class="photo-frame dog-border">
-                    <div class="photo-placeholder">
-                        <p>Replace with<br>your photos 🐕</p>
+
+                <!-- Photo 2 -->
+                <div class="polaroid-frame">
+                    <div class="polaroid-photo">
+                        <img src="images/IMG_5064.jpg" alt="Erinnerung 2">
+                    </div>
+                    <div class="polaroid-caption">
+                        <p class="caption-text">Catching some waveeees</p>
                     </div>
                 </div>
-                <div class="photo-frame vinyl-border">
-                    <div class="photo-placeholder">
-                        <p>5-10 photos<br>total 💿</p>
+
+                <!-- Photo 3 -->
+                <div class="polaroid-frame">
+                    <div class="polaroid-photo">
+                        <img src="images/IMG_3446.JPG" alt="Erinnerung 3">
+                    </div>
+                    <div class="polaroid-caption">
+                        <p class="caption-text">Fliegen immer so cozy mit Dir :) </p>
                     </div>
                 </div>
-                <div class="photo-frame croissant-border">
-                    <div class="photo-placeholder">
-                        <p>Beautiful<br>memories 🥐</p>
+
+                <!-- Photo 4 -->
+                <div class="polaroid-frame">
+                    <div class="polaroid-photo">
+                        <img src="images/IMG_4334.jpg" alt="Erinnerung 4">
+                    </div>
+                    <div class="polaroid-caption">
+                        <p class="caption-text">Vermisse Xian, so schööön</p>
                     </div>
                 </div>
-                <div class="photo-frame dog-border">
-                    <div class="photo-placeholder">
-                        <p>Together<br>forever 💖</p>
+
+                <!-- Photo 5 -->
+                <div class="polaroid-frame">
+                    <div class="polaroid-photo">
+                        <img src="images/IMG_0680.jpg" alt="Erinnerung 5">
+                    </div>
+                    <div class="polaroid-caption">
+                        <p class="caption-text">und ganz viel Sonne tanken </p>
                     </div>
                 </div>
-                <div class="photo-frame vinyl-border">
-                    <div class="photo-placeholder">
-                        <p>Special<br>moments ✨</p>
+
+                <!-- Photo 6 -->
+                <div class="polaroid-frame">
+                    <div class="polaroid-photo">
+                        <img src="images/IMG_5553.jpg" alt="Erinnerung 6">
+                    </div>
+                    <div class="polaroid-caption">
+                        <p class="caption-text"> cuties</p>
+                    </div>
+                </div>
+
+                <!-- Photo 7 -->
+                <div class="polaroid-frame">
+                    <div class="polaroid-photo">
+                        <img src="images/IMG_4406.jpg" alt="Erinnerung 7">
+                    </div>
+                    <div class="polaroid-caption">
+                        <p class="caption-text">stylish maus</p>
+                    </div>
+                </div>
+
+                <!-- Photo 8 -->
+                <div class="polaroid-frame">
+                    <div class="polaroid-photo">
+                        <img src="images/IMG_4496.jpg" alt="Erinnerung 8">
+                    </div>
+                    <div class="polaroid-caption">
+                        <p class="caption-text">kurz vor ganz üblen bauchschmerzen, nie wieder indisch...</p>
+                    </div>
+                </div>
+
+                <!-- Photo 9 -->
+                <div class="polaroid-frame">
+                    <div class="polaroid-photo">
+                        <img src="images/IMG_1227.jpg" alt="Erinnerung 9">
+                    </div>
+                    <div class="polaroid-caption">
+                        <p class="caption-text">nochmal partnerlooooook <3 </p>
                     </div>
                 </div>
             </div>
-            <p class="gallery-note">
-                💡 <em>To add your photos: Replace the placeholder divs with
-                &lt;img src="assets/images/photos/photo1.jpg" alt="Description"&gt;</em>
-            </p>
+            
         </section>
 
         <!-- Closing Section -->
         <section class="letter-section closing-section" data-section="4">
+            <span class="spinning-cheese cheese-left" id="cheese-left">🧀</span>
+            <span class="spinning-cheese cheese-right" id="cheese-right">🧀</span>
             <div class="closing-container">
-                <h2>With All My Love 💖</h2>
+                <h2>Hab dich lieb 💖</h2>
                 <p class="closing-message">
-                    May this year bring you endless joy, success in everything you do,
-                    and all the croissants your heart desires! 🥐
+                    Ich wünsche Dir für dieses Jahr ganz viel Glück und Freude, Erfolg in allem, was du tust,
+                    und alle Croissants, die dein Herz begehrt! 🥐 
                 </p>
                 <p class="closing-message">
-                    Thank you for being you, for making me smile every day,
-                    and for filling my life with so much happiness.
+                    Danke, dass du so bist wie du bist und dass du mich jeden Tag zum Lächeln bringst.
                 </p>
                 <p class="signature">
-                    Forever yours,<br>
-                    <span class="signature-name">[Your Name]</span> 💕
+                    Dein,<br>
+                    <span class="signature-name">Jino</span> 💕
                 </p>
                 <div class="floating-elements">
                     <span class="float-element">💖</span>
                     <span class="float-element">✨</span>
                     <span class="float-element">🥐</span>
+                    <span class="float-element">🐭</span>
+                    <span class="float-element">🐟</span>
                     <span class="float-element">💖</span>
                     <span class="float-element">✨</span>
                     <span class="float-element">🐕</span>
+                    <span class="float-element">🐭</span>
                     <span class="float-element">💖</span>
+                    <span class="float-element">🐟</span>
                 </div>
             </div>
         </section>
@@ -214,5 +295,6 @@
     <script src="scripts/envelope.js"></script>
     <script src="scripts/vinyl-player.js"></script>
     <script src="scripts/animations.js"></script>
+    <script src="scripts/cheese-easter-egg.js"></script>
 </body>
 </html>
