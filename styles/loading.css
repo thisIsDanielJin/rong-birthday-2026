@@ -1,0 +1,221 @@
+/* ========================
+   Loading Screen
+   ======================== */
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--peach) 50%, var(--soft-pink) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    transform: scale(1.1);
+    pointer-events: none;
+}
+
+.loading-animation {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-bottom: var(--spacing-md);
+}
+
+.loading-envelope {
+    width: 100px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--peach) 0%, var(--warm-orange) 100%);
+    border: 2px solid #daa574;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: loadingBounce 1.5s ease-in-out infinite;
+}
+
+.loading-envelope::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, var(--soft-pink) 0%, var(--peach) 100%);
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    border-top: 2px solid #daa574;
+    border-left: 2px solid #daa574;
+    border-right: 2px solid #daa574;
+    animation: loadingFlap 2s ease-in-out infinite;
+}
+
+@keyframes loadingBounce {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translate(-50%, -50%) translateY(-10px) rotate(-2deg);
+    }
+    75% {
+        transform: translate(-50%, -50%) translateY(-10px) rotate(2deg);
+    }
+}
+
+@keyframes loadingFlap {
+    0%, 100% {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(-20deg);
+    }
+}
+
+.loading-icons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.loading-icon {
+    position: absolute;
+    font-size: 2rem;
+    animation: loadingOrbit 3s linear infinite;
+}
+
+.loading-icon:nth-child(1) {
+    animation-delay: 0s;
+    top: 0;
+    left: 50%;
+}
+
+.loading-icon:nth-child(2) {
+    animation-delay: 1s;
+    top: 50%;
+    right: 0;
+}
+
+.loading-icon:nth-child(3) {
+    animation-delay: 2s;
+    bottom: 0;
+    left: 50%;
+}
+
+@keyframes loadingOrbit {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.loading-text {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: #8B4513;
+    text-align: center;
+    margin-top: var(--spacing-md);
+}
+
+.loading-dots {
+    display: inline-block;
+}
+
+.loading-dots::after {
+    content: '';
+    animation: loadingDots 1.5s steps(4, end) infinite;
+}
+
+@keyframes loadingDots {
+    0%, 20% {
+        content: '';
+    }
+    40% {
+        content: '.';
+    }
+    60% {
+        content: '..';
+    }
+    80%, 100% {
+        content: '...';
+    }
+}
+
+.loading-progress {
+    width: 250px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: var(--spacing-sm);
+}
+
+.loading-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--soft-pink) 0%, var(--warm-orange) 100%);
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
+}
+
+/* Sparkle effect */
+.loading-sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px white;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.loading-sparkle:nth-child(1) {
+    top: 20%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.loading-sparkle:nth-child(2) {
+    top: 30%;
+    right: 20%;
+    animation-delay: 0.5s;
+}
+
+.loading-sparkle:nth-child(3) {
+    bottom: 25%;
+    left: 25%;
+    animation-delay: 1s;
+}
+
+.loading-sparkle:nth-child(4) {
+    bottom: 20%;
+    right: 15%;
+    animation-delay: 1.5s;
+}

@@ -7,6 +7,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/loading.css">
     <link rel="stylesheet" href="styles/envelope.css">
     <link rel="stylesheet" href="styles/orbiting.css">
     <link rel="stylesheet" href="styles/letter.css">
@@ -16,10 +17,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Three.js for 3D Dog -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-animation">
+            <div class="loading-envelope"></div>
+            <div class="loading-icons">
+                <span class="loading-icon">🥐</span>
+                <span class="loading-icon">💿</span>
+                <span class="loading-icon">🐕</span>
+            </div>
+        </div>
+        <div class="loading-sparkle"></div>
+        <div class="loading-sparkle"></div>
+        <div class="loading-sparkle"></div>
+        <div class="loading-sparkle"></div>
+        <p class="loading-text">
+            Preparing something special<span class="loading-dots"></span>
+        </p>
+        <div class="loading-progress">
+            <div id="loading-progress-bar" class="loading-progress-bar"></div>
+        </div>
+    </div>
+
     <!-- Landing Scene with 3D Envelope -->
-    <div id="landing-scene" class="landing-scene">
+    <div id="landing-scene" class="landing-scene" style="display: none;">
         <!-- Animated Dog Character -->
         <div class="dog-character">🐕</div>
 
@@ -181,6 +207,9 @@
     </div>
 
     <!-- Scripts -->
+    <script src="scripts/loader.js"></script>
+    <script src="scripts/particles.js"></script>
+    <script src="scripts/3d-dog.js"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/envelope.js"></script>
     <script src="scripts/vinyl-player.js"></script>
